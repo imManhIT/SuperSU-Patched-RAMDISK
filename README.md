@@ -3,9 +3,11 @@
 - SuperSU inject script
 - Patched Sepolicy:
 
-Root a reference device (4.4+ with SELinux enabled) with v2.50+
-Extract the sepolicy file from the target boot image's ramdisk
-With the reference device connected to ADB:
+++ Root a reference device (4.4+ with SELinux enabled) with v2.50+
+
+++ Extract the sepolicy file from the target boot image's ramdisk
+
+++ With the reference device connected to ADB:
 ```
 adb push sepolicy /data/local/tmp/sepolicy
 
