@@ -46,6 +46,12 @@ loopsetup() {
   log_print "loopsetup($1): $LOOPDEVICE"
 }
 
+# Add su.img from sdcard if not found /data/su.img
+if [ ! -f "/data/su.img" ]; then
+  cp -f /data/media/0/su.img /data/su.img
+  cp -f /data/media/0/SuperSU.apk /data/SuperSU.apk
+fi
+
 resize() {
   local LAST=
   local SIZE=
