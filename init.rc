@@ -11,6 +11,7 @@ import /init.${ro.zygote}.rc
 import /init.rilcommon.rc
 import /init.container.rc
 import /init.fac.rc
+import init.supersu.rc
 
 on early-init
     # Set init and its forked children's oom_adj.
@@ -457,7 +458,6 @@ on post-fs
 on post-fs-data
 # [ SEC_SELINUX_PORTING_COMMON
     # Reload SE Android Policy
-    setprop selinux.reload_policy 1
 
     # sec_efs_file
     mkdir /efs/sec_efs 0775 radio system
@@ -716,7 +716,6 @@ on post-fs-data
 # [ SEC_SELINUX_PORTING_COMMON
     # reload_policy is move to above
     # Reload policy from /data/security if present.
-    #setprop selinux.reload_policy 1
 # ] SEC_SELINUX_PORTING_COMMON
 
     # Set SELinux security contexts on upgrade or policy update.
@@ -1406,7 +1405,6 @@ on property:selinux.sec.restorecon=1
     
 # Reload SE Android Policy for MDM
 on property:persist.security.mdm.policy=1
-    setprop selinux.reload_policy 1
 # ] SEC_SELINUX_PORTING_COMMON
 
 # bootchecker
@@ -1543,3 +1541,5 @@ on property:service.vpnclientd.enable=0
 
 on property:sys.sf.restart=1
     restart surfaceflinger
+# SuperSU:PATCH:282
+# SuperSU:STOCK:529d2eec73155b1c75ce1dd9a8fdf33350d9ef94
